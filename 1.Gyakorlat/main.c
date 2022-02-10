@@ -1,29 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<time.h>
-#include<stdbool.h>
+#include <time.h>
+#include <stdbool.h>
 
+
+#define MERET 3
 #define ALSO 500
 #define FELSO 1000
 
 int primKeres(int hatar);
+void arrayWritei(int t[], int meret);
+void arrayReaderi(int t[], int meret);
+void arrayWritef(float t[], int meret);
+void arrayWrited(double t[], int meret);
 
 
 int main()
 {
-    /*
+
     // 2es feladat
     printf("\t \t \t \t \t \t \t \t \t \t \t \t \t \t12345678\n");
     printf("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012345678\n");
 
     // 3as feladat
-   /* time_t now;
+    time_t now;
     time(&now);
 
     int i;
     for(i=0; i<=2; i++){
         printf(" %s \n",ctime(&now));
-        getch();
         sleep(61); //itt 1 perc 1 msp-t vár a program
         i++;
     }
@@ -133,7 +138,7 @@ int main()
             }while(!ok);
 
     }
-    */
+
     // 7-es feladat
 
     time_t pstart,pend;
@@ -148,6 +153,25 @@ int main()
     // 70k korul erte el a 2msp-t es 90k korul a 3msp-t
 
 
+    //8-as feladat
+
+    int ti[MERET];
+    int k;
+    printf("Kerek int szamokat!\n");
+    for(k=0; k<MERET; k++){
+        scanf("%d",&ti[k]);
+    }
+    float tf[MERET];
+     printf("Kerek float szamokat!\n");
+    for(k=0; k<MERET; k++){
+        scanf("%f",&tf[k]);
+    }
+    arrayWritei(ti,MERET);
+    arrayWritef(tf,MERET);
+
+
+
+
 
     return 0;
 }
@@ -155,16 +179,17 @@ int main()
 
 int primKeres(int hatar){
 
-    int i,j,db=0;
+    int i,j,db=0, fele;
     int  osztok;
     for(i=2; i<= hatar; i++){
-        j = i/2;
+        fele = i/2;
         osztok = 0;
-        while( j>1 && osztok == 0){
+        j=2;
+        while( j<fele && osztok == 0){
             if(i%j == 0){
                 osztok++;
             }else{
-                j--;
+                j++;
             }
         }
 
@@ -178,3 +203,68 @@ int primKeres(int hatar){
     return db;
 
 }
+
+void arrayWritei(int t[], int meret){
+
+    FILE* fp= fopen("integerArray.txt","w");
+    int i;
+    for(i=0; i<meret; i++){
+
+        fprintf(fp,"%d\n",t[i]);
+    }
+
+    fclose(fp);
+    return;
+}
+
+void arrayReaderi(int t[], int meret){
+
+    printf("Add meg a fajl nevet: ");
+    char utvonal[25];
+    int i=0;
+    char ch;
+    scanf("%s",&utvonal);
+    utvonal[i]= '\0';
+    FILE* fp;
+    int helpArray[meret];
+    i=0;
+    if (fp  = fopen(utvonal, "r"))
+  {
+    while (fscanf(fp, "%d", &helpArray[i]) != EOF)
+    {
+      i++;
+    }
+    fclose(fp);
+
+    helpArray[i] = '\0';
+
+    printf("A beolvasott szamok\n");
+    for (i = 0; helpArray[i] != '\0'; i++)
+      printf("%d\n", helpArray[i]);
+  }
+
+
+    int filesize= ftell(fp);
+    printf("A fajl merete: %d", filesize);
+
+
+    return ;
+
+}
+
+void arrayWritef(float t[], int meret){
+
+    FILE* fp= fopen("floatArray.txt","w");
+    int i;
+    for(i=0; i<meret; i++){
+
+        fprintf(fp,"%f\n",t[i]);
+    }
+
+    fclose(fp);
+    return;
+
+
+
+}
+
