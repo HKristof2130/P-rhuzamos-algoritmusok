@@ -12,12 +12,15 @@ int primKeres(int hatar);
 void arrayWritei(int t[], int meret);
 void arrayReaderi(int t[], int meret);
 void arrayWritef(float t[], int meret);
+void arrayReaderf(float t[], int meret);
 void arrayWrited(double t[], int meret);
+void arrayReaderd(double t[], int meret);
+void randomNummberG( char nev[], int elem);
 
 
 int main()
 {
-
+    /*
     // 2es feladat
     printf("\t \t \t \t \t \t \t \t \t \t \t \t \t \t12345678\n");
     printf("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012345678\n");
@@ -161,15 +164,37 @@ int main()
     for(k=0; k<MERET; k++){
         scanf("%d",&ti[k]);
     }
+    arrayWritei(ti,MERET);
+    arrayReaderi(ti,MERET);
+
     float tf[MERET];
-     printf("Kerek float szamokat!\n");
+    printf("Kerek float szamokat!\n");
     for(k=0; k<MERET; k++){
         scanf("%f",&tf[k]);
     }
-    arrayWritei(ti,MERET);
     arrayWritef(tf,MERET);
+    arrayReaderf(tf,MERET);
 
+    double td[MERET];
+    printf("Kerek double szamokat!\n");
+    for(k=0; k<MERET;k++){
+        scanf("%lf",&td[k]);
+    }
 
+    arrayWrited(td,MERET);
+    arrayReaderd(td,MERET);
+    */
+
+    /////   9es feladat
+
+    printf("Adja meg, hogy mi legyen a fajl neve: ");
+    char fajlnev[30];
+    scanf("%s",&fajlnev);
+    int elemszam;
+    printf("Adja meg az elemszamot:  ");
+    scanf("%d",&elemszam);
+
+    randomNummberG(fajlnev,elemszam);
 
 
 
@@ -219,22 +244,19 @@ void arrayWritei(int t[], int meret){
 
 void arrayReaderi(int t[], int meret){
 
-    printf("Add meg a fajl nevet: ");
-    char utvonal[25];
-    int i=0;
-    char ch;
-    scanf("%s",&utvonal);
-    utvonal[i]= '\0';
     FILE* fp;
     int helpArray[meret];
-    i=0;
-    if (fp  = fopen(utvonal, "r"))
+    int i=0;
+    printf("Add meg a fajl nevet: ");
+    char fajl[40];
+    scanf("%s",&fajl);
+    if (fp  = fopen(fajl, "r"))
   {
     while (fscanf(fp, "%d", &helpArray[i]) != EOF)
     {
       i++;
     }
-    fclose(fp);
+
 
     helpArray[i] = '\0';
 
@@ -245,7 +267,8 @@ void arrayReaderi(int t[], int meret){
 
 
     int filesize= ftell(fp);
-    printf("A fajl merete: %d", filesize);
+    printf("A fajl merete: %d mb\n", filesize);
+    fclose(fp);
 
 
     return ;
@@ -264,7 +287,106 @@ void arrayWritef(float t[], int meret){
     fclose(fp);
     return;
 
+}
 
+void arrayReaderf(float t[], int meret){
+
+    FILE* fp;
+    float helpArray[meret];
+    int i=0;
+    printf("Add meg a fajl nevet: ");
+    char fajl[40];
+    scanf("%s",&fajl);
+    if (fp  = fopen(fajl, "r"))
+  {
+    while (fscanf(fp, "%f", &helpArray[i]) != EOF)
+    {
+      i++;
+    }
+
+
+    helpArray[i] = '\0';
+
+    printf("A beolvasott szamok\n");
+    for (i = 0; helpArray[i] != '\0'; i++)
+      printf("%f\n", helpArray[i]);
+  }
+
+
+    int filesize= ftell(fp);
+    printf("A fajl merete: %d mb\n", filesize);
+    fclose(fp);
+
+
+    return ;
+}
+
+
+void arrayWrited(double t[], int meret){
+
+    FILE* fp= fopen("doubleArray.txt","w");
+    int i;
+    for(i=0; i<meret; i++){
+
+        fprintf(fp,"%lf\n",t[i]);
+    }
+
+    fclose(fp);
+    return;
+
+
+}
+
+
+
+void arrayReaderd(double t[], int meret){
+
+    FILE* fp;
+    double helpArray[meret];
+    int i=0;
+    printf("Add meg a fajl nevet: ");
+    char fajl[40];
+    scanf("%s",&fajl);
+    if (fp  = fopen(fajl, "r"))
+  {
+    while (fscanf(fp, "%lf", &helpArray[i]) != EOF)
+    {
+      i++;
+    }
+
+
+    helpArray[i] = '\0';
+
+    printf("A beolvasott szamok\n");
+    for (i = 0; helpArray[i] != '\0'; i++)
+      printf("%lf\n", helpArray[i]);
+  }
+
+
+    int filesize= ftell(fp);
+    printf("A fajl merete: %d mb\n", filesize);
+    fclose(fp);
+
+
+    return ;
+}
+
+void randomNummberG( char nev[] , int elem){
+
+    FILE* fp= fopen(nev,"rw");
+    int i;
+    time_t start,end;
+    start= time(NULL);
+    int szam ;
+    for(i=0; i<elem; i++){
+        szam = rand()%(99999)+1;
+        fprintf(fp,"%d\n",szam ); // igen ez egy kicsit csúnya így
+    }
+    fclose(fp);
+    end= time(NULL);
+    printf("A müvelet %.lf msp-t vett igenybe",difftime(end,start));
+
+    return;
 
 }
 
