@@ -22,13 +22,13 @@ int main()
        gep1[i]= addJob(elem);
        printf("Bejon a %d elem\n",elem);
        transfer(gep1,gep2,i,j);
-       printf("atment a %d elem\n",elem);
+       printf("Atment a %d elem\n",elem);
        elem++;
        printf("Bejon a %d elem\n", elem);
        gep1[i]=addJob(elem);
        elem++;
        printf("Elkezd szamolni a 2-es gep\n");
-       printf("Elkezd szamolt az 1-es gep\n");
+       printf("Elkezd szamolni az 1-es gep\n");
        calculate(GEP1);
 
        i++;
