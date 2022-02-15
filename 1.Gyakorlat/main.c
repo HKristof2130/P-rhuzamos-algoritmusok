@@ -373,14 +373,14 @@ void arrayReaderd(double t[], int meret){
 
 void randomNummberG( char nev[] , int elem){
 
-    FILE* fp= fopen(nev,"rw");
+    FILE* fp= fopen(nev,"w");
     int i;
     time_t start,end;
     start= time(NULL);
     int szam ;
     for(i=0; i<elem; i++){
         szam = rand()%(99999)+1;
-        fprintf(fp,"%d\n",szam ); // igen ez egy kicsit csúnya így
+        fprintf(fp,"%d\n",szam );
     }
     fclose(fp);
     end= time(NULL);
