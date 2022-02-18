@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1645176756 source:h:\github\parhuzamos_algoritmusok\2.gyakorlat\meresek_bonyolultsaga\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
