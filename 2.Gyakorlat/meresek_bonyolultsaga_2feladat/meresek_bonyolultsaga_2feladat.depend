@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1645180146 source:h:\github\parhuzamos_algoritmusok\2.gyakorlat\meresek_bonyolultsaga_2feladat\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+
