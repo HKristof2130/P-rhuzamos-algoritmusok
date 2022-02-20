@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1645373152 source:h:\github\parhuzamos_algoritmusok\2.gyakorlat\meresek_bonyolultsága_3feladat\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<time.h>
+
