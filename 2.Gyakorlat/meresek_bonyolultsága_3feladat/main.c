@@ -107,7 +107,7 @@ int recBinarySearch(float array[], int end, int start, float key){
     printf("tartomany %d - %d\nkozep : %d\n",start,end,i);
     if(start> end){
         return -1;
-    }else if( floatCompare(key,array[i],00.000001)){
+    }else if( floatCompare(key,array[i],0.00001)){
         return i+1;
     }else if( key < array[i]){
         return recBinarySearch(array,i-1,start,key);
