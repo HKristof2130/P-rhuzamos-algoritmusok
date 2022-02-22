@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <math.h>
 
 #define SIZE 10
 
@@ -10,6 +11,7 @@ void arrayPrint(float array[], int size);
 bool strictlyMonotonicRise(float array[], int size);
 int binarySearch(float array[], int size);
 int recBinarySearch(float array[], int end, int start, float key);
+bool floatCompare(float f1,float f2, float epsilon);
 
 int main()
 {
@@ -20,6 +22,7 @@ int main()
     //printf("A keresett elem a %d helyen van\n", binarySearch(arr,SIZE));
     printf("Elem rec kereseshez:");
     float key = scanf("%f",&key);
+
     int rec= recBinarySearch(arr,SIZE-1,0,key);
 
     if(rec == -1){
@@ -104,11 +107,20 @@ int recBinarySearch(float array[], int end, int start, float key){
     printf("tartomany %d - %d\nkozep : %d\n",start,end,i);
     if(start> end){
         return -1;
+    }else if( floatCompare(key,array[i],00.000001)){
+        return i+1;
     }else if( key < array[i]){
         return recBinarySearch(array,i-1,start,key);
     }else if(key > array[i]){
         return recBinarySearch(array,end,i+1,key);
-    }else return i+1;
+    }
 
 
+
+}
+
+
+bool floatCompare(float f1,float f2, float epsilon){
+
+    return fabs(f1-f2) < epsilon;
 }
