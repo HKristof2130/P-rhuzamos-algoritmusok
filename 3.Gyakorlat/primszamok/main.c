@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <pthread.h>
+
+
+#define RANGE 100
+
 
 int main()
 {
-    printf("Hello world!\n");
+
     return 0;
 }
