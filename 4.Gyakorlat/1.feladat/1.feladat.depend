@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1646327339 source:h:\github\parhuzamos_algoritmusok\4.gyakorlat\1.feladat\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+	<pthread.h>
+
