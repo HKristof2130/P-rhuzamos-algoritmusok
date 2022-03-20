@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1646600683 source:h:\github\parhuzamos_algoritmusok\4.gyakorlat\2.feladat\main.c
+1646731095 source:h:\github\parhuzamos_algoritmusok\4.gyakorlat\2.feladat\main.c
 	<stdio.h>
 	<stdlib.h>
 	<pthread.h>

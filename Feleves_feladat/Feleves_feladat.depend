@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1646733315 source:h:\github\parhuzamos_algoritmusok\féléves_feladat\feleves_feladat\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1647774987 source:h:\github\parhuzamos_algoritmusok\feleves_feladat\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<pthread.h>
+	<stdbool.h>
+
