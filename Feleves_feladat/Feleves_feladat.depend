@@ -4,10 +4,11 @@
 	<stdlib.h>
 	<math.h>
 
-1647774987 source:h:\github\parhuzamos_algoritmusok\feleves_feladat\main.c
+1647943214 source:h:\github\parhuzamos_algoritmusok\feleves_feladat\main.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	<pthread.h>
 	<stdbool.h>
+	<time.h>
 
