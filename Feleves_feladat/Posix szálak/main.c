@@ -29,9 +29,6 @@ double secant5, secant6;
 
 
 double function_value(double num);
-void * secant_method1();
-void * secant_method2();
-void * secant_method3();
 void * start_secant1();
 void * start_secant2();
 void * start_secant3();
@@ -58,6 +55,8 @@ int main()
     pthread_create(&secant_thread1,NULL,start_secant1,NULL);
     pthread_create(&secant_thread2,NULL,start_secant2,NULL);
     pthread_create(&secant_thread3,NULL,start_secant3,NULL);
+
+
     pthread_join(secant_thread1,NULL);
     pthread_join(secant_thread2,NULL);
     pthread_join(secant_thread3,NULL);
@@ -91,63 +90,29 @@ double function_value(double num){
 
 }
 
-void * secant_method1(){
 
-    double tmp;
-
-    tmp = secant2;
-    secant2= secant1-( (function_value(secant1)*(secant1-secant2))/ (function_value(secant1)-function_value(secant2)));
-    secant1 = tmp;
-
-    return NULL;
-}
-
-void * secant_method2(){
-
-    double tmp;
-
-    tmp = secant3;
-    secant4= secant3-( (function_value(secant3)*(secant3-secant4))/ (function_value(secant3)-function_value(secant4)));
-    secant3 = tmp;
-
-    return NULL;
-}
-
-void * secant_method3(){
-
-    double tmp;
-
-    tmp = secant5;
-    secant6= secant5-( (function_value(secant5)*(secant5-secant6))/ (function_value(secant5)-function_value(secant6)));
-    secant5 = tmp;
-
-    return NULL;
-}
 
 void* start_secant1(){
 
     bool found;
-    pthread_t sc;
-    clock_t start,end;
+
+    double tmp;
 
     found = false;
 
-    start = clock();
+
     while( !found){
 
         if( fabs(secant2-SOLUTION) <= 0.00000001  ){
             printf("Megvannak a gyokok a szelo modszerrel: %.9lf\n",secant2);
             found = true;
         }else{
-            pthread_create(&sc,NULL,secant_method1,NULL);
-            pthread_join(sc,NULL);
+        tmp = secant2;
+        secant2= secant1-( (function_value(secant1)*(secant1-secant2))/ (function_value(secant1)-function_value(secant2)));
+        secant1 = tmp;
 
         }
     }
-    end = clock();
-
-    double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("A szamitashoz szuksegs ido: %.3f msp\n", time_spent);
 
 
 
@@ -157,28 +122,27 @@ void* start_secant1(){
 void* start_secant2(){
 
         bool found;
-        pthread_t sc;
-        clock_t start,end;
+        double tmp;
+
 
 
         found = false;
-        start = clock();
+
         while( !found){
 
         if( fabs(secant4-SOLUTION) <= 0.00000001  ){
             printf("Megvannak a gyokok a szelo modszerrel: %.9lf\n",secant4);
             found = true;
         }else{
-            pthread_create(&sc,NULL,secant_method2,NULL);
-            pthread_join(sc,NULL);
+
+
+            tmp = secant3;
+            secant4= secant3-( (function_value(secant3)*(secant3-secant4))/ (function_value(secant3)-function_value(secant4)));
+            secant3 = tmp;
+
 
         }
 }
-
-    end = clock();
-
-    double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("A  szamitashoz felhasznalt ido: %.3f msp\n", time_spent);
 
 
 }
@@ -186,8 +150,8 @@ void* start_secant2(){
 void * start_secant3(){
 
     bool found;
-    pthread_t sc;
-    clock_t start,end;
+    double tmp;
+
 
     found = false;
 
@@ -197,17 +161,13 @@ void * start_secant3(){
             printf("Megvannak a gyokok a szelo modszerrel: %.9lf\n",secant6);
             found = true;
         }else{
-            pthread_create(&sc,NULL,secant_method3,NULL);
-            pthread_join(sc,NULL);
+            tmp = secant5;
+            secant6= secant5-( (function_value(secant5)*(secant5-secant6))/ (function_value(secant5)-function_value(secant6)));
+            secant5 = tmp;
+
 
         }
     }
-
-    end = clock();
-
-    double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("A  szamitashoz felhasznalt ido: %.3f msp\n", time_spent);
-
 
 }
 
