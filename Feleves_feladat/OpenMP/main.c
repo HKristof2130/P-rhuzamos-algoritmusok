@@ -27,7 +27,6 @@ int main()
     double secant5, secant6;
     double r1,r2,r3;
 
-    int new_interval;
 
 
     printf("Hello masodszor openmp-vel  parhuzamositani fogom a szelomodszert az x^3-4x^2-4x+51 fuggvennyre tobb intervallumon.\n");
@@ -38,22 +37,15 @@ int main()
     secant3 = START2;
     secant4 = END2;
 
-    printf("Szeretnel megadni te egy intervallumot?\n0: igen\t 1:nem\n");
-    scanf("%d",&new_interval);
-    if( new_interval == 0){
-        printf("Add meg a kezdopontot:");
-        scanf("%lf",&secant5);
-        printf("Add meg a vegpontot:");
-        scanf("%lf",&secant6);
-    }else{
+
         secant5 = START3;
         secant6 = END3;
-    }
+
 
     start = clock();
 
     #pragma omp parallel
-    {4
+    {
        r1 = secant_method(secant1,secant2);
        r2 = secant_method(secant3,secant4);
        r3 = secant_method(secant5,secant6);
@@ -77,10 +69,10 @@ double function_value(double num){
 
 
     result = 0;
-    result += (pow(num, 3.0));
-    result -= (4*(pow(num,2.0)));
-    result -= (num*4);
-    result += 51.0;
+    result += 10*(pow(num, 3.0));
+    result -= (3*(pow(num,2.0)));
+    result -= (num*11);
+    result -= 11.0;
 
 
     return result;
