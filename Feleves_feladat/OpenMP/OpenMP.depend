@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1648545071 source:h:\github\parhuzamos_algoritmusok\feleves_feladat\openmp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<omp.h>
+	<math.h>
+	<stdbool.h>
+	<time.h>
+
