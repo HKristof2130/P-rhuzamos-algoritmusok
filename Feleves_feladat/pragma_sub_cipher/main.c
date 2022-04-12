@@ -6,9 +6,10 @@
 
 
 #define KEY_SIZE 8
-#define SIZE 100
+#define SIZE 200
 
-// prob�nak : sqvtgilpubiueupxnqytvqjnfrbxgmtuswrvuhatzbyfhmdlnxenudbbmbzcswgpmknnyfnwupddltxzalefeiqvxtwillvdnwymagjyneezqhp
+// kulcs: vas
+// probának : sqvtgilpubiueupxnqytvqjnfrbxgmtuswrvuhatzbyfhmdlnxenudbbmbzcswgpmknnyfnwupddltxzalefeiqvxtwillvdnwymagjyneezqhpbbejgbeioőugoőnwoojgbeőigbwőivjnbeőiuebgőojngőijbeőojvneőovjeőovjneőovbedabiebvpiebveivbeqivbqeivbeiővbeqiővuebviőbeőivebvőioeqbviqehbveqbvqiővbqeiővbeőivbeqőviqebviőeqbvőiqbvőiqvbqeivbeqiővbeqivbeqivbqeővibeqvi
 
 void print_Code(char arr[], int size);
 void cipher(char abc[],char info[], char key[],int e_inf, int e_key, char ciphered[]);

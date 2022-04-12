@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1649672575 source:h:\github\parhuzamos_algoritmusok\feleves_feladat\sub_cipher\main.c
+1649751434 source:h:\github\parhuzamos_algoritmusok\feleves_feladat\sub_cipher\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
